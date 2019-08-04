@@ -1,0 +1,113 @@
+/*
+---
+name: Flexbox
+category:
+  - Component/flex
+tag:
+  - new
+---
+
+
+```html
+<h2>standard</h2>
+<div class="c-flex">
+  <div class="u-bg-info">この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、</div>
+  <div class="u-bg-normal">この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、</div>
+</div>
+<h2>カラム落ち有り</h2>
+<div class="c-flex -wrap">
+  <div class="u-bg-info">この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、</div>
+  <div class="u-bg-normal">この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、</div>
+</div>
+<h2>横組右/縦組み下寄せ</h2>
+<div class="c-flex -justify-end">
+  <div class="u-bg-normal">この文章はダミーです。</div>
+  <div class="u-bg-info">この文章はダミーです。</div>
+</div>
+<h2>余白分はあいだに</h2>
+<div class="c-flex -justify-between">
+  <div class="u-bg-normal">この文章はダミーです。</div>
+  <div class="u-bg-info">この文章はダミーです。</div>
+</div>
+<h2>横組下/縦組み右寄せ</h2>
+<div class="c-flex -align-items-end">
+  <div class="u-bg-normal" style="height:100px"> この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、</div>
+  <div class="u-bg-info">この文章はダミーです。</div>
+</div>
+<h2>余白分自動伸縮: 等幅+2倍サイズ（最後）</h2>
+<div class="c-flex -flex-even">
+  <div class="u-bg-normal">この文章はダミーです。</div>
+  <div class="u-bg-info">この文章はダミーです</div>
+  <div class="u-bg-warning -flex-2">この文章はダミーです</div>
+</div>
+```
+
+*/
+
+.c-flex
+  display: flex
+  flex-wrap: wrap
+  flex: auto
+  align-items: end
+  @media screen and (max-width: $screen-w-tablet)
+    justify-content: space-between
+
+  @media screen and (min-width: $screen-w-tablet + 1)
+    & > *
+      spacing('mr', 'normal')
+
+  &.-wrap
+    flex-wrap: wrap
+
+  &.-justify-start
+    justify-content: flex-start
+
+  &.-justify-end
+    justify-content: flex-end
+
+  &.-justify-center
+    justify-content: center
+
+  &.-justify-between
+    justify-content: space-between
+
+  &.-justify-around
+    justify-content: space-around
+
+  &.-align-items-start
+    align-items: flex-start
+
+  &.-align-items-end
+    align-items: flex-end
+
+  &.-align-items-center
+    align-items: center
+
+  &.-align-items-stretch
+    align-items: stretch
+
+  &.-align-self-start
+    align-self: flex-start
+
+  &.-align-self-end
+    align-self: flex-end
+
+  &.-align-self-center
+    align-self: center
+
+  &.-align-self-stretch
+    align-self: stretch
+
+  &.-flex-even
+    > *
+      flex: 1 1 auto
+      padding-left: $spacing-px
+      padding-left: $spacing-rem
+      &:first-of-type
+        padding-left: 0
+
+  .-flex-1
+    flex: 1 1 auto
+
+  .-flex-2
+    flex: 2 2 auto

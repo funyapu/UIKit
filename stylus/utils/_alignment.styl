@@ -1,0 +1,40 @@
+/*
+---
+name: TextAlignment
+category:
+  - Utils/align
+tag:
+  - new
+compile: true
+---
+
+```html
+<table class="c-table -style-celled">
+  <tr>
+    <td class="u-align-left">u-align-left</td>
+    <td class="u-align-center">u-align-center</td>
+    <td class="u-align-right">u-align-right</td>
+  </tr>
+  <tr>
+    <td class="u-valign-baseline">u-valign-baseline</td>
+    <td class="u-valign-left">u-valign-left</td>
+    <td class="u-valign-middle">u-valign-middle</td>
+    <td class="u-valign-right">u-valign-right</td>
+  </tr>
+</table>
+```
+
+*/
+
+for v in (top middle bottom baseline)
+  .u-valign-{v}
+    vertical-align: v !important
+
+for v in (left center right)
+  .u-align-{v}
+    text-align: v !important
+
+.u-box-align-center
+  width: auto !important
+  margin-left: auto
+  margin-right: auto

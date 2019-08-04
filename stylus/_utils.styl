@@ -1,0 +1,48 @@
+@import "utils/_spacing.styl"
+@import "utils/_painted-background.styl"
+@import "utils/_alignment.styl"
+@import "utils/_text.styl"
+
+.u-x-scrollable
+  max-width: 100% !important
+  overflow-x: scroll !important
+
+.u-nobr
+  white-space: nowrap !important
+  @media screen and (max-width: $screen-w-tablet)
+    white-space: inherit !important
+
+.u-hide
+  display: none !important
+
+.u-hide-on-mobile
+  @media screen and (max-width: $screen-w-mobile)
+    display: none !important
+
+.u-hide-on-pc
+  @media screen and (min-width: ($screen-w-tablet + 1))
+    display: none !important
+
+.u-hide-on-tablet
+  @media screen and (min-width: $screen-w-mobile + 1) and (max-width: ($screen-w-tablet))
+    display: none !important
+
+/*
+---
+name: Width
+category:
+  - Utils/Width
+tag:
+  - new
+compile: true
+---
+
+```html
+<div class="u-w-full u-bg-info">width:100%</div>
+
+```
+
+*/
+
+.u-w-full
+  width: 100% !important

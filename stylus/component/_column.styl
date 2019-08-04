@@ -1,0 +1,11 @@
+.c-column
+  &.-col-2
+    column-count: 2
+  &.-col-3
+    column-count: 3
+  @media screen and (max-width: $screen-w-tablet)
+    &.-no-col-on-tablet
+      column-count: 1
+  @media screen and (max-width: $screen-w-mobile)
+    &.-no-col-on-mobile
+      column-count: 1

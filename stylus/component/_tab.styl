@@ -1,0 +1,48 @@
+/*
+---
+name: Tab
+category:
+  - Component/tab
+tag:
+  - new
+---
+ ** 未導入 **
+
+```html
+<div class="c-button">
+  <div class="c-button -is-disabled">
+    TabA
+  </div>
+  <div class="c-button">
+    TabB
+  </div>
+</div>
+
+
+<div class="c-tab">
+  ○
+</div>
+<div class="c-tab -is-active">
+  ○
+</div>
+
+```
+
+*/
+
+.c-tabs
+  .c-button
+    border-bottom-right-radius: 0
+    border-bottom-left-radius: 0
+    & ~ button
+    & ~ input[type="submit"]
+    & ~ input[type="button"]
+    & ~ .c-button
+      border-left: 1px solid $color-gray-lighter
+      spacing('ml', 'none')
+.c-tab
+  display: none
+  @extends .c-card
+  border-radius: 0 0 10px 10px
+  &.-is-active
+    display: inherit

@@ -1,0 +1,223 @@
+/*
+---
+name: Form(input group)
+category:
+  - Component/form
+tag:
+  - new
+---
+まだ未使用。resetが含まれているため。
+
+*/
+
+$input-line-height = $line-height || 1.75
+
+// reset
+input[type="search"]::-webkit-search-decoration
+input[type="search"]::-webkit-search-cancel-button
+input[type="number"]::-webkit-outer-spin-button
+input[type="number"]::-webkit-inner-spin-button
+input::-ms-clear
+input::-ms-reveal
+select::-ms-expand
+  display: none
+
+.c-input-group
+  position: relative
+  spacing('mb')
+  max-width: 100%
+  text-align: left
+
+  &:last-child
+    spacing('mb', 0)
+
+  &.-w-auto
+    width: auto
+
+  &.-w-large
+    max-width: $w-body * .5
+    width: 100%
+
+  &.-w-full
+    width: 100%
+    max-width: 100%
+
+  &.-center
+    margin-left: auto
+    margin-right: auto
+
+  .c-input-group_input
+    font-size: 16px // iOSの入力時に広がる仕様対策
+    border-radius: $spacing * .5
+    border: 1px solid $color-gray
+    width: 100%
+    background: #fff
+    max-width: $w-body * .25
+    padding: $spacing * .75
+    box-sizing: border-box
+    display: block
+    padding-top: $spacing
+
+    &:hover
+    &:focus
+      border: 1px solid $color-main
+
+    .-is-error &
+    &.-is-error
+      @extends .u-bg-error
+
+    .-is-warning &
+    &.-is-warning
+      @extends .u-bg-warning
+
+    &.-is-success
+      @extends .u-bg-success
+
+    .-size-small &
+      padding: $spacing * .5
+      padding-top: $spacing * .75
+
+    .-size-large &
+      padding: $spacing
+
+    .-w-auto &
+      width: auto
+      max-width: none
+
+    .-w-large &
+      width: 100%
+      max-width: $w-body * .5
+
+    .-w-full &
+      width: 100%
+      max-width: 100%
+
+    &[required]
+      & + label
+        &:before
+          top: 0
+          right: $spacing
+          background: $color-gray
+          font-size: 10px
+          padding: 0 $spacing * .5
+          color: #fff
+          content: "required"
+          margin-left: $spacing * -0.5
+          margin-right: $spacing * .5
+        &:lang(ja)
+          &:before
+            content: "必須"
+        .-hide-required &
+          &:before
+            display: none
+        .-is-error &
+          &:before
+            background: $color-error
+
+    // floating label
+    & + label
+      color: transparent
+      text-align: left
+      font-size: 0
+      position: absolute
+      display: block
+      top: 0
+      pointer-events: none
+      padding-left: $spacing * .5
+      line-height: 1
+      margin-top: $spacing * .5
+
+    &:not(:placeholder-shown)
+      & + label
+        font-size: 10px
+        color: $color-minor
+
+      &:hover
+      &:focus
+        border: 1px solid $color-main
+
+    // with icon
+    .icon.-for-input + &
+      padding-left: 16px + $spacing * 1.5
+
+      & + label
+        padding-left: 16px + $spacing  * 1.5
+
+.c-input-group_label
+  @extends .c-input-group .c-input-group_input + label
+  @extends .c-input-group .c-input-group_input:not(:placeholder-shown) + label
+  &.-is-required
+    @extends .c-input-group .c-input-group_input[required] + label
+
+// input内に表示するようのicon
+.icon.-for-input
+  color: $color-minor
+  padding: $spacing
+  font-size: 16px
+  line-height: $input-line-height
+  margin-top: 1px
+  position: absolute
+  &:before
+    font-size: 16px
+
+.c-point-message
+  font-size: 75%
+  display: block
+
+  .-is-error &
+  &.-is-error
+    color: $color-error
+
+  .-is-warning &
+  &.-is-warning
+    color: $color-warning
+
+select
+  vertical-align: baseline
+  padding: 0
+  border: 0
+  background: transparent
+  display: inline-block
+  margin: 0
+  vertical-align: bottom
+  border-radius: $spacing * .5
+  font-size: 16px
+
+input[type="text"]
+input[type="password"]
+input[type="tel"]
+input[type="email"]
+input[type="number"]
+input[type="date"]
+input[type="datetime-local"]
+input[type="file"]
+input[type="search"]
+textarea
+  @extends .c-input-group .c-input-group_input
+
+input[type="radio"]
+input[type="checkbox"]
+  spacing('m', 'none')
+  spacing('ml', 'normal')
+  spacing('mr', 'tiny')
+  font-size: 16px
+  border: 0
+
+input[type="checkbox"]
+  & + .icon-check
+    &:before
+      background: #fff
+      padding: 2px
+      outline: 1px solid $color-gray
+      display: inline-block
+      vertical-align: middle
+      margin-left: -24px
+      color: #fff
+
+  &:checked + .icon-check
+    &:before
+      color: $color-main
+
+.c-input-group_check
+  display: block
+

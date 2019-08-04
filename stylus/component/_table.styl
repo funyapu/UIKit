@@ -1,0 +1,127 @@
+/*
+---
+name: Table
+category:
+  - Component/table
+tag:
+  - new
+---
+数字+単位は右揃えにしてください。
+
+
+```html
+<table class="c-table">
+  <tr>
+    <th>表頭</th>
+    <th>価格</th>
+  </tr>
+  <tr>
+    <td>hoge</td>
+    <td class="u-align-right">1000円</td>
+  </tr>
+</table>
+<div class="c-table_fixed-column">
+  <div class="c-table_fixed-column_wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>固定</th>
+          <td>スクロール</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>固定</th>
+          <td>Lorem ipsum dolor sit amet, an vel noster deseruisse adipiscing, alia dicta ea vix. Sea iudico ullamcorper cu, sea putent fastidii postulant et. Bonorum facilis at pri, an duo omnes facilisi pertinax. Tale mutat quaeque eu mea, platonem repudiare no has, usu ei nemore percipit. Habemus fierent pri et.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+```
+
+*/
+
+.c-table
+  border-collapse: collapse
+
+  td,th
+    vertical-align: middle
+    spacing('p')
+
+  &.-size-small
+    td,th
+      spacing('p', 'small')
+
+  &.-size-tiny
+    td,th
+      spacing('p', 'tiny')
+
+  th
+    font-weight: normal
+
+  &.-style-celled
+    td,th
+      border: 1px solid $color-light-gray
+    th
+      background: $color-light-gray
+      border: 1px solid #fff
+      color: $color-normal
+      thead
+        &
+          background: $color-main
+          color: #fff
+          @media print
+            background: $color-main
+            color: $color-normal
+            border: 1px solid $color-light-gray
+  &.-style-bordered
+    td,th
+      border-top: 1px solid $color-light-gray
+    tr:first-child
+      td,th
+        border-top: 0
+  tr.-style-bordered
+    td,th
+      border-top: 1px solid $color-light-gray
+    tr:first-child
+      td,th
+        border-top: 0
+
+  &.-w-full
+    width: 100%
+
+  .empty
+    background: #fff !important
+    border: 1px solid #fff !important
+
+  .header.-color-emphasize
+    background: $color-navy
+    color: #fff
+
+
+.c-table_fixed-column
+  position: relative
+
+  .c-table_fixed-column_wrapper
+    width: 100%
+    overflow-x: auto
+
+  table
+    border-collapse: collapse
+    display: table
+
+  th
+  td
+    border: 1px solid $color-light-gray
+    padding: $spacing-px
+    padding: $spacing-rem
+
+    img
+      max-width: none
+
+  tbody th,
+  thead th
+    position: absolute
+    left: 0

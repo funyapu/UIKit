@@ -1,0 +1,119 @@
+/*
+---
+name: Basic Configs
+category:
+  - Common
+tag:
+  - configs
+---
+
+*/
+
+// fonts
+$font-normal = HiraginoSans, 'Hiragino Sans',"ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", HiraginoSans, "Hiragino Sans", "Noto Sans Japanese", NotoSansJapanese, "Meiryo", sans-serif
+//$font-normal = Muli, "Noto Sans Japanese"
+$font-size = 12px
+$font-size-tablet = 12px
+$font-size-mobile = 12px
+$line-height = 1.75
+
+$spacing = 20px
+$spacing-rem = 1.666rem
+
+$spacing-huge = $spacing * 3
+$spacing-huge-rem =  $spacing-rem * 3
+
+$spacing-larger = $spacing * 2
+$spacing-larger-rem =  $spacing-rem * 2
+
+$spacing-large = $spacing * 1.5
+$spacing-large-rem =  $spacing-rem * 1.5
+
+$spacing-normal = $spacing
+$spacing-normal-rem = $spacing-rem
+
+$spacing-small = $spacing * .75
+$spacing-small-rem =  $spacing-rem * .75
+
+$spacing-smaller = $spacing * .5
+$spacing-smaller-rem =  $spacing-rem * .5
+
+$spacing-tiny = $spacing * .25
+$spacing-tiny-rem =  $spacing-rem * .25
+
+// main container width
+$w-body = 960px
+
+/*
+---
+name: Screen Break Point
+category:
+  - Common
+tag:
+  - configs
+---
+レスポンシブルのデザインが変わる画面サイズの定義。
+Zoomを上げた時にデザインが変わるよう、rem指定。
+
+<pre>
+$screen-w-mobile= 30rem
+$screen-w-tablet= 48rem
+$screen-w-pc= 60rem
+</pre>
+
+*/
+$screen-w-mobile= 35rem
+$screen-w-tablet= 48rem
+$screen-w-pc= 60rem
+
+/*
+---
+name: Colors
+category:
+  - Common
+tag:
+  - configs
+---
+利用できるカラーの定義
+カラーは下記で表記しましょう。
+
+ * hex shorthand( `#fff` )
+ * hex ( `#121212` )
+
+ また、alpha指定をする場合は`alpha関数`を利用し、下記のようにしましょう。
+
+ * `alpha($color-white, .5)`
+
+| name | hex |
+|---|---|
+| $color-black | <span style="color:#414141">#414141</span> |
+
+*/
+
+// colors
+$color-white = #fff
+$color-black = #262626
+$color-dark-gray = lighten($color-black, 25)
+$color-gray-darker = lighten($color-black, 40)
+$color-gray = lighten($color-black, 55)
+$color-gray-lighter = lighten($color-black, 70)
+$color-light-gray = lighten($color-black, 80)
+
+// main color
+$color-main = #eeb830
+$color-sub = #f86524
+
+$color-normal = $color-black
+$color-minor = $color-gray
+$color-mute = $color-light-gray
+
+$color-link = #0a6057
+$color-success = #598a4f
+$color-warning = #f86524
+$color-error = #c30f15
+
+/* module color config */
+// button color
+$color-button-normal = $color-gray-darker
+$color-button-primary = $color-main
+$color-button-special = $color-sub

@@ -1,0 +1,46 @@
+/*
+---
+name: 色塗り背景
+category:
+  - Utils/bg
+tag:
+  - new
+---
+
+```html
+<div class="u-bg-normal">
+  .u-bg-normal
+</div>
+<div class="u-bg-info">
+  .u-bg-info
+</div>
+<div class="u-bg-error">
+  .u-bg-error
+</div>
+<div class="u-bg-warning">
+  .u-bg-warning
+</div>
+<div class="u-bg-success">
+  .u-bg-success
+</div>
+
+```
+
+*/
+
+$colors = "normal" "link" "error" "warning" "success"
+for v,i in (normal info error warning success)
+  $color = lookup('$color-' + $colors[i])
+  .u-bg-{v}
+    background: lighten($color, 50) !important
+    border: 1px solid $color !important
+    color: $color !important
+
+    a,
+    a:link,
+    a:visited,
+    a:hover,
+    a:active
+      color: $color-link !important
+      text-decoration: none !important
+

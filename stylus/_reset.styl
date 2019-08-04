@@ -1,0 +1,122 @@
+@charset "utf-8"
+
+//
+// BASE + RESET
+/////////////////////////////////
+
+*
+  box-sizing: border-box
+  -ms-overflow-style: -ms-autohiding-scrollbar
+
+html
+  font-size: $font-size
+
+html:lang(ja)
+  letter-spacing: .1rem
+
+body
+  color: $color-normal
+  font-family: $font-normal
+  font-size: $font-size
+  font-weight: normal
+  font-weight: 300
+  line-height: 1.75
+  margin: 0
+
+  @media screen and (max-width: $screen-w-pc)
+    font-size: $font-size-tablet
+    line-height: 1.5
+
+  @media screen and (max-width: $screen-w-tablet)
+    font-size: $font-size-mobile
+    line-height: 1.25
+
+img
+  line-height: 0
+  max-width: 100%
+
+small
+  font-size: .75rem
+
+strong
+  font-weight: normal
+  font-size: 1.25rem
+
+em
+  font-weight: 600
+  font-style: normal
+
+h1
+h2
+h3
+  font-weight: normal
+  margin: 0
+
+h1
+  font-size: 2.25rem
+  line-height: 1.25
+  @media screen and (max-width: $screen-w-tablet)
+    &
+      font-size: 1.75rem
+
+h2
+  font-size: 2rem
+  line-height: 1.25
+  @media screen and (max-width: $screen-w-tablet)
+    &
+      font-size: 1.5rem
+
+h3
+  font-size: 1.25rem
+  line-height: 1.25
+  @media screen and (max-width: $screen-w-tablet)
+    &
+      font-size: 1.25rem
+
+a
+  link-base()
+
+\:focus
+  outline: none
+
+dl,
+dt,
+dd
+  margin: 0
+  padding: 0
+
+ol,
+ul
+  margin: 0
+  padding: 0
+
+  li
+    list-style: none
+
+p
+  margin-bottom: 1rem
+  line-height 1.75
+
+  &:last-child
+    margin-bottom: 0
+
+
+li > a
+  display: inline-block
+
+label,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+input[type="radio"],
+input[type="checkbox"]
+  text-transform: capitalize
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"]
+  text-transform: uppercase

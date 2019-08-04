@@ -1,0 +1,96 @@
+/*
+---
+name: FontSize
+category:
+  - Utils/font-size
+tag:
+  - new
+compile: true
+---
+
+```html
+<div class="u-font-none">
+  font-size: 0rem;
+</div>
+<div class="u-font-small">
+  font-size: 0.75rem;
+</div>
+<div class="u-font-normal">
+  font-size: 1rem;
+</div>
+<div class="u-font-large">
+  font-size: 1.25rem;
+</div>
+
+<div class="u-font-larger">
+  font-size: 1.5rem;
+</div>
+
+<div class="u-font-huge">
+  font-size: 2rem;
+</div>
+
+```
+
+*/
+.u-font-none
+  font-size: 0 !important
+
+.u-font-small
+  font-size: .75rem !important
+
+.u-font-normal
+  font-size: 1rem !important
+
+.u-font-large
+  font-size: 1.25rem !important
+
+.u-font-larger
+  font-size: 1.5rem !important
+
+.u-font-huge
+  font-size: 2rem !important
+
+/*
+---
+name: 色文字
+category:
+  - Utils/ColoredText
+tag:
+  - new
+---
+
+```html
+<div class="u-color-normal">
+  .u-color-normal
+</div>
+
+<div class="u-color-info">
+  .u-color-info
+</div>
+
+<div class="u-color-error">
+  .u-color-error
+</div>
+
+<div class="u-color-warning">
+  .u-color-warning
+</div>
+
+<div class="u-color-success">
+  .u-color-success
+</div>
+
+<div class="u-color-minor">
+  .u-color-minor
+</div>
+
+
+```
+
+*/
+
+for v,i in (normal warning success 'error' minor mute)
+  .u-color-{v}
+    color: lookup('$color-' + v) !important
+

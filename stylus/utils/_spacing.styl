@@ -1,0 +1,55 @@
+/*
+---
+name: Spacing
+category:
+  - Utils/spacing
+tag:
+  - new
+compile: true
+---
+
+```html
+<div class="u-mr-none">
+  .u-mr-none
+</div>
+
+<div class="u-ml-small">
+  .u-ml-small
+</div>
+
+<div class="u-mt-normal">
+  .u-mt-normal
+</div>
+
+<div class="u-mb-large">
+  .u-mb-large
+</div>
+
+<div class="u-m-larger">
+  .u-m-larger
+</div>
+
+<div class="u-p-huge">
+  .u-p-huge
+</div>
+
+```
+
+*/
+
+for s in ("none" "tiny" "smaller" "small" "normal" "large" "huge")
+  .u-m-{s}
+    spacing('m', s, 'important')
+  .u-m-{s}-negative
+    spacing('m', s, 'negative', 'important')
+  .u-p-{s}
+    spacing('p', s, 'important')
+
+  for p in ("r" "l" "t" "b")
+    .u-m{p}-{s}
+      spacing('m' + p, s, 'important')
+    .u-m{p}-{s}-negative
+      spacing('m' + p, s, 'negative', 'important')
+    .u-p{p}-{s}
+      spacing('p' + p, s, 'important')
+

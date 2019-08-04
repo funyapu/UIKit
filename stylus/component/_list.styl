@@ -1,0 +1,119 @@
+/*
+---
+name: List
+category:
+  - Component/list
+tag:
+  - new
+---
+
+```html
+<ul class="c-list -type-square">
+  <li>test</li>
+  <li>demo</li>
+  <li>foooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo</li>
+  <li>foo
+    <ul>
+      <li>demo</li>
+      <li>foooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo</li>
+    </ul>
+  </li>
+</ul>
+<ul class="c-ordred-list -type-square">
+  <li>test</li>
+  <li>demo</li>
+  <li>foooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo</li>
+  <li>foo
+    <ul>
+      <li>demo</li>
+      <li>foooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo</li>
+    </ul>
+  </li>
+</ul>
+```
+
+*/
+
+.c-list
+  text-align: left
+  li
+    margin-left: $spacing-px
+    margin-left: $spacing-rem
+    font-weight: normal
+    font-size: $font-size
+  &.-type-square
+    > li
+      position: relative
+      padding-left: $font-size
+      padding-left: 1.5rem
+      box-sizing: border-box
+      &:before
+        $square-size = round($font-size * $line-height * .3)
+        content: ''
+        position: absolute
+        left: 0
+        top: $square-size
+        width: $square-size
+        height: $square-size
+        background: $color-success
+        @media print
+          content: '■'
+          top: 0
+          color: $color-success
+    .-type-square
+       >li:before
+        background: $color-success
+        @media print
+          color: $color-success
+
+
+.c-ordred-list
+  text-align: left
+  > li
+    margin-left: $spacing-px
+    margin-left: $spacing-rem
+  &.-type-text
+    counter-reset: text-counter;
+    > li
+      $square-size = round($font-size * 1.75 * 1.5)
+      position: relative
+      padding-left: $font-size * 2.5
+      padding-left: 2.5rem
+      list-style: none
+      &:before
+        margin-left: $font-size * -1.5
+        margin-left: -1.5rem
+        content: counter(text-counter) ". ";
+        counter-increment: text-counter
+        color: $color-success
+        font-weight: bold
+        position: absolute
+        left: $font-size * -1.5 * 1.5
+        width: $square-size
+        text-align: center
+
+  &.-type-square
+    counter-reset: step-counter;
+    > li
+      position: relative
+      padding-left: $font-size * 1.5
+      padding-left: 1.5rem
+      box-sizing: border-box
+      margin-bottom: $spacing * 2
+      font-weight: bold
+      font-size: $font-size * 1.5
+      &:before
+        content: counter(step-counter);
+        counter-increment: step-counter
+        $square-size = round($font-size * 1.75 * 1.5)
+        position: absolute
+        left: $font-size * -1.5 * 1.5
+        width: $square-size
+        height: $square-size
+        text-align: center
+        background: $color-success
+        color: #fff
+        font-weight: bold;
+        border-radius: $spacing * .25;
+        @media print
+          color: $color-success

@@ -1,0 +1,34 @@
+.c-toggle
+  display: inline-block
+
+  label
+    @extend .c-button
+    @extend .c-button.-w-auto
+    @extend .c-button.-size-tiny
+    cursor: pointer
+    border: 1px solid $color-gray
+    transition: background 600ms ease, color 600ms ease
+
+    &:hover
+      background: none
+
+  & input:first-of-type
+    & + label
+      border-right: 0
+      border-top-right-radius: 0
+      border-bottom-right-radius: 0
+
+  & input:last-of-type
+    & + label
+      border-top-left-radius: 0
+      border-bottom-left-radius: 0
+
+  input[type="radio"]
+    display: none
+
+    &:checked
+      & + label
+        cursor: default
+        background: #fff
+        color: $color-normal
+

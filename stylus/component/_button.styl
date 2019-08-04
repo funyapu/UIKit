@@ -1,0 +1,163 @@
+/*
+---
+name: Button
+category:
+  - Component/button
+tag:
+  - new
+---
+ ** 未導入 **
+
+```html
+<div class="c-button">
+  通常
+</div>
+
+<div class="c-button -size-small -color-primary">
+  送信ボタン
+</div>
+
+<div class="c-button -size-large -color-special">
+  特に強調するボタン
+</div>
+
+<div class="c-button -w-auto -color-link">
+  リンク
+</div>
+
+<div class="c-button -w-large -color-transparent">
+  透過ボタン
+</div>
+
+<div class="c-button -w-full -is-disabled">
+  無効
+</div>
+
+<div class="c-button -shape-square">
+  ○
+</div>
+
+```
+
+*/
+
+$bg-button = $color-button-normal
+
+.c-button
+  display: inline-block
+  box-sizing: border-box
+  background: $bg-button
+  color: #fff !important
+  border-radius: $spacing * .25
+  border: 0
+  width: $w-body * .25
+  max-width: 100%
+  cursor: pointer
+  text-align: center
+  font-size: 1.25rem
+  font-weight: 800
+  text-transform: uppercase
+  spacing('p')
+
+  & ~ button
+  & ~ input[type="submit"]
+  & ~ input[type="button"]
+  & ~ .c-button
+    spacing('ml', 'smaller')
+
+  &:hover
+    background: rgba($bg-button, .5)
+
+  &:active
+  &.-is-active
+    box-shadow: 0 0 5px 0 $color-main, inset 0 0 10px $color-black
+
+  &.-size-tiny
+    spacing('p', 'tiny')
+    width: $w-body * .25
+    font-size: 1rem
+
+  &.-size-small
+    spacing('p', 'smaller')
+    width: $w-body * .25
+    font-size: 1rem
+
+  &.-size-large
+    spacing('p', 'large')
+    font-size: 16px // inputのサイズにあわせた
+
+  &.-w-auto
+    width: auto
+
+  &.-w-large
+    width: $w-body * .5
+
+  &.-w-full
+    width: 100%
+
+  &.-color-primary
+  &.-type-submit
+    $bg-button = $color-button-primary
+    background: $bg-button !important
+    color: #fff !important
+
+    &:hover
+      background: rgba($bg-button, .9) !important
+
+    &:active
+    &.-is-active
+      background: rgba($bg-button, .75) !important
+
+  &.-color-special
+    $bg-button = $color-button-special
+    background: $bg-button !important
+    color: #fff !important
+
+    &:hover
+      background: rgba($bg-button, .9) !important
+
+    &:active
+    &.-is-active
+      background: rgba($bg-button, .75) !important
+
+  &.-color-link
+    background: transparent !important
+    border: 1px solid $color-main
+    color: $color-main !important
+    &:active
+    &:hover
+      color: #fff !important
+      background: $color-main !important
+
+  &.-color-transparent
+    background: transparent
+    text-decoration: none
+    color: inherit !important
+
+    &:active
+    &:hover
+      box-shadow: none
+      text-decoration: underline
+
+  &:disabled
+  &.-is-disabled
+    background: $color-gray !important
+
+  &.-shape-square
+    max-width: initial
+    box-sizing: content-box
+    spacing('p', 'smaller')
+    font-size: $font-size * 2
+    width: $font-size * 2
+    height: $font-size * 2
+    &.-size-tiny
+      font-size: $font-size
+      width: $font-size
+      height: $font-size
+      spacing('p', 'tiny')
+      line-height: 1
+    &.-size-small
+      font-size: $font-size * 1.5
+      width: $font-size * 1.5
+      height: $font-size * 1.5
+      spacing('p', 'tiny')

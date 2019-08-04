@@ -1,0 +1,77 @@
+
+spacing(name, size = normal)
+  if name == 'm'
+    prop = margin
+  else if name == 'ml'
+    prop = margin-left
+  else if name == 'mr'
+    prop = margin-right
+  else if name == 'mt'
+    prop = margin-top
+  else if name == 'mb'
+    prop = margin-bottom
+  else if name == 'p'
+    prop = padding
+  else if name == 'pl'
+    prop = padding-left
+  else if name == 'pr'
+    prop = padding-right
+  else if name == 'pt'
+    prop = padding-top
+  else if name == 'pb'
+    prop = padding-bottom
+  else if name == 'radius'
+    prop = border-radius
+  else
+    prop = name
+
+  if index(arguments, 'negative') > 0
+    n = -1
+  else
+    n = 1
+
+  if index(arguments, 'important') > 0
+    importantString = unquote("!important")
+  else
+    importantString = unquote("")
+
+  {prop}: (calcSpacer(size, 'px') * n) importantString
+  {prop}: (calcSpacer(size, 'rem') * n) importantString
+
+radius(size = normal, name = all)
+  if name == 'tl'
+    prop = border-top-left-radius
+  else if name == 'tr'
+    prop = border-top-right-radius
+  else if name == 'bl'
+    prop = border-bottom-left-radius
+  else if name == 'br'
+    prop = border-bottom-right-radius
+  else
+    prop = border-radius
+
+  {prop}: calcSpacer(size)
+
+calcSpacer(size, unit = '')
+  if size == 0 || size == 'none'
+    0
+  else
+    if unit == 'rem'
+      lookup("$spacing-" + size + '-rem')
+    else
+      lookup("$spacing-" + size)
+
+m-flex-basis(d,i)
+  n = 100 / d * i
+  flex-basis: (n)%
+  width: (n)%
+
+link-base($color=$color-link)
+  color: $color
+  text-decoration: none
+  &:link,
+  &:visited,
+  &:hover,
+  &:active
+    color: $color
+    text-decoration: none

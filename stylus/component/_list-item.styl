@@ -1,0 +1,21 @@
+.c-list-item
+  spacing('p', 'small')
+  spacing('pl', 'smaller')
+  spacing('pr', 'smaller')
+  display: flex
+
+  &.-styl-separated
+    border-bottom: 1px solid $color-gray
+
+  > *
+    spacing('m', 'small', 'negative')
+    spacing('p', 'small')
+    spacing('pl', 'smaller')
+    spacing('pr', 'smaller')
+    display: block
+
+    &:hover
+    &:active
+      background: rgba(#fff, .3)
+      transition: all 1s
+
